@@ -1,0 +1,58 @@
+<header class="flexContainer">
+    <i class="material-icons hoverEffect">arrow_back_ios</i>
+    <h1 class="hoverEffect">My Profile</h1>
+    <i class="material-icons hoverEffect">menu</i>
+</header>
+
+<section class="profile-container flexContainer">
+    <ul>
+      <img src='../assets{{_user.avatarpath}}'>
+    </ul>
+    <ul>
+      <li>
+        <span class="contact-label">Name: </span>
+        <span class="contact-info">{{_user.firstName}} {{_user.lastName}}</span>
+      </li>
+      <li>
+          <span class="contact-label">Email: </span>
+          <span class="contact-info">{{_user.email}}</span>
+      </li>
+      <li>
+          <span class="contact-label">Phone: </span>
+          <span class="contact-info">{{_user.phone}}</span>
+      </li>
+      <li>
+          <span class="contact-label">Mobile: </span>
+          <span class="contact-info">{{_user.mobile}}</span>
+      </li>
+      <li>
+          <span class="contact-label">Location: </span>
+          <span class="contact-info">{{_user.location}}</span>
+      </li>
+
+    </ul>
+</section>
+
+<section class="section-header flexContainer">
+  <span *ngFor="let item of _stats">
+    <span class="stats-total">{{item.total}}</span>
+    <br>
+    <span class="stats-label">{{item.title}}</span>
+  </span>
+</section>
+
+<section class="follower-container flexContainer">
+      <a class="follower-text active hoverEffect">FOLLOWING</a>
+      <br>
+      <a class="follower-text hoverEffect">FOLLOWERS</a>
+ </section>
+
+ <section class="following-container flexContainer">
+    <ul *ngIf="_followers">
+      <li>People I'm following</li>
+      <li class="border hoverEffect" *ngFor="let item of _followers">
+         <img class="avatar-size" src='../assets{{item.followee.avatar}}'>{{item.followee.userDisplayName}}
+      </li> 
+    </ul>
+   <a class="seeAll hoverEffect"> <p>SEE ALL </p><i class="material-icons seeAll-arrow">arrow_forward_ios</i></a>
+</section>
